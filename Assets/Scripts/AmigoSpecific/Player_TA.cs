@@ -50,7 +50,7 @@ public class Player_TA: BaseTopDown
 		isFinished= false;
 		
 		// get a ref to the player manager
-		GameController_TA.Instance.UpdateLivesP1(myDataManager.GetHealth());
+		//GameController_TA.Instance.UpdateLivesP1(myDataManager.GetHealth());
 	}
 	
 	public override void GetInput()

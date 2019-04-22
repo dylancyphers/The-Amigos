@@ -55,7 +55,7 @@ public class BaseTopDown : ExtendedCustomMonoBehaviour
 	public float horz;
 	public float vert;
 	
-	private CharacterController controller;
+	public CharacterController controller;
 	
 	// -------------------------------------------------------------------------
 			

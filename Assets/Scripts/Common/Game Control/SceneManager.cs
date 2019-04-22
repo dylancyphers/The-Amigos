@@ -11,6 +11,11 @@ public class SceneManager : MonoBehaviour
 		// keep this object alive
 		DontDestroyOnLoad (this.gameObject);
 	}
+
+    public static void GetToTwo()
+    {
+        Application.LoadLevel("Two");
+    }
 	
 	public void LoadLevel( string sceneName )
 	{
