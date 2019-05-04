@@ -22,7 +22,7 @@ GameObject:
   - component: {fileID: 212500111356926754}
   - component: {fileID: 61891478300525638}
   m_Layer: 0
-  m_Name: BelowHub
+  m_Name: Default Zone
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
