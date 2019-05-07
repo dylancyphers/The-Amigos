@@ -62,4 +62,7 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/r20.unity
     guid: 381962aa9319e45a69fd208f44138a1e
+  - enabled: 1
+    path: Assets/Scenes/d10.unity
+    guid: 1436f98f53038dc4ba55f225da66482e
   m_configObjects: {}
