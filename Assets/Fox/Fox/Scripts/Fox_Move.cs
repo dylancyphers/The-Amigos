@@ -37,6 +37,8 @@ public class Fox_Move : MonoBehaviour {
             rb.AddForce(new Vector2(0, jumpForce));
 
         }
+        if(dead == false)
+            Crouch();
     }
 	
 	// Update is called once per frame
@@ -50,7 +52,7 @@ public class Fox_Move : MonoBehaviour {
 					Special();
 				}
 				Jump();
-				Crouch();
+				
 			}
 			Dead();
 		}
