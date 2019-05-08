@@ -206,15 +206,16 @@ public class Fox_Move : MonoBehaviour {
 			rateOfHit=Time.time+cooldownHit;
 			Destroy(life[qtdLife-1]);
 			qtdLife-=1;
-		}
+            this.transform.position = PlayerLocationController.futurePos;
+        }
 	}
 
 	void Dead(){
 		if(qtdLife<=0){
 			anim.SetTrigger("Dead");
 			dead=true;
-
-		}
+            SceneManager.LoadScene("d1");
+        }
 	}
 
 	public void TryAgain(){														//Just to Call the level again
