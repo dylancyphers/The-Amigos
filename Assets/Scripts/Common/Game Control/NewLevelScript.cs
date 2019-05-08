@@ -7,6 +7,9 @@ public class NewLevelScript : MonoBehaviour
 {
     [SerializeField] private string newLevel;
 
+    private GameObject[] life;
+    private int qtdLife;
+
     public float posX;
     public float posY;
 
@@ -14,9 +17,12 @@ public class NewLevelScript : MonoBehaviour
     {
         if (other.CompareTag("Player"))
         {
+            life = GameObject.FindGameObjectsWithTag("Life");
+            qtdLife = life.Length;
             SceneManager.LoadScene(newLevel);
             Vector3 newPos = new Vector3(posX, posY);
             PlayerLocationController.futurePos = newPos;
+            PlayerLivesController.futureLives = qtdLife;
         }
     }
 }
