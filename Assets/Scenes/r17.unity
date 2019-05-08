@@ -170,7 +170,7 @@ GameObject:
   - component: {fileID: 84123257}
   m_Layer: 0
   m_Name: Tilemap
-  m_TagString: Untagged
+  m_TagString: TileMap
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1180,15 +1180,15 @@ PrefabInstance:
       propertyPath: m_SizeDelta.y
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 224194490534115868, guid: 65793d218a5376641af00e1213260fb6,
-        type: 3}
-      propertyPath: m_AnchoredPosition.x
-      value: -0.6999512
-      objectReference: {fileID: 0}
     - target: {fileID: 224879153153456118, guid: 65793d218a5376641af00e1213260fb6,
         type: 3}
       propertyPath: m_AnchoredPosition.x
       value: 2.4874878
+      objectReference: {fileID: 0}
+    - target: {fileID: 224194490534115868, guid: 65793d218a5376641af00e1213260fb6,
+        type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: -0.6999512
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 65793d218a5376641af00e1213260fb6, type: 3}
