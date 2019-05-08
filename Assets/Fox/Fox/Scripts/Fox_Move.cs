@@ -14,6 +14,7 @@ public class Fox_Move : MonoBehaviour {
 	private int qtdLife;
     private int jumpCount = 0;
 
+
 	// Use this for initialization
 	void Start () {
         rb = GetComponent<Rigidbody2D>();
@@ -31,18 +32,27 @@ public class Fox_Move : MonoBehaviour {
 
     void Update()
     {
-        if (Input.GetKeyDown(KeyCode.X) && jumpCount != 2)
+        if (Input.GetKeyDown(KeyCode.X) && jumpCount != 2 && Powers.doubleJump == true)
         {
-            jumpCount++;
-            rb.AddForce(new Vector2(0, jumpForce));
+           jumpCount++;
+           rb.AddForce(new Vector2(0, jumpForce));
 
         }
-        if(dead == false)
+        if(Powers.doubleJump == false && Input.GetKeyDown(KeyCode.X) && jumpCount < 1)
+        {
+            rb.AddForce(new Vector2(0, jumpForce));
+            jumpCount++;
+        }
+
+
+
+        if (dead == false)
             Crouch();
     }
-	
-	// Update is called once per frame
-	void FixedUpdate () {
+
+
+    // Update is called once per frame
+    void FixedUpdate () {
 		if(dead==false){
 		//Character doesnt choose direction in Jump									//If you want to choose direction in jump
 			if(attacking==false){													//just delete the (jumping==false)
@@ -50,8 +60,9 @@ public class Fox_Move : MonoBehaviour {
 					Movement();
 					Attack();
 					Special();
+                    Jump();
 				}
-				Jump();
+				
 				
 			}
 			Dead();
@@ -92,14 +103,19 @@ public class Fox_Move : MonoBehaviour {
 	}
 
 	void Jump(){
-		//Jump
-		//if(Input.GetKeyDown(KeyCode.X) && jumpCount != 2){
-  //          jumpCount++;
-		//	rb.AddForce(new Vector2(0,jumpForce));
+        //Jump
+        //double jump unlocked
+        //if (Powers.doubleJump == true)
+        //{
+        //    if (Input.GetKeyDown(KeyCode.X) && jumpCount != 2)
+        //    {
+        //        jumpCount++;
+        //        rb.AddForce(new Vector2(0, jumpForce));
 
-		//}
-		//Jump Animation
-		if(rb.velocity.y>0&&up==false){
+        //    }
+        //}
+        //Jump Animation
+        if (rb.velocity.y>0&&up==false){
 			up=true;
 			jumping=true;
 			anim.SetTrigger("Up");
@@ -162,8 +178,21 @@ public class Fox_Move : MonoBehaviour {
 			Hurt();
 		}
 
-        if (other.gameObject.name == "Coin")
+        if (other.gameObject.name == "DoubleJump")
         {
+            Powers.FoundDoubleJump();
+            Destroy(other.gameObject);
+        }
+
+        if (Powers.wallJump == true && Input.GetKeyDown(KeyCode.X))
+        {
+            rb.AddForce(new Vector2(0, jumpForce));
+        }
+            //walljump
+
+            if (other.gameObject.name == "WallJump")
+        {
+            Powers.FoundWallJump();
             Destroy(other.gameObject);
         }
     }

@@ -292,6 +292,14 @@ PrefabInstance:
       propertyPath: m_TagString
       value: Upgrade
       objectReference: {fileID: 0}
+    - target: {fileID: 1201005869866078, guid: 583dee20c7e59444c9503bccfa14fd4d, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1201005869866078, guid: 583dee20c7e59444c9503bccfa14fd4d, type: 3}
+      propertyPath: m_Name
+      value: WallJump
+      objectReference: {fileID: 0}
     - target: {fileID: 4638472522712906, guid: 583dee20c7e59444c9503bccfa14fd4d, type: 3}
       propertyPath: m_LocalPosition.x
       value: -1.518
@@ -332,26 +340,9 @@ PrefabInstance:
       propertyPath: m_LocalScale.x
       value: 0.614127
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 114674361512458316, guid: 583dee20c7e59444c9503bccfa14fd4d, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: 583dee20c7e59444c9503bccfa14fd4d, type: 3}
---- !u!1 &308831218 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 1201005869866078, guid: 583dee20c7e59444c9503bccfa14fd4d,
-    type: 3}
-  m_PrefabInstance: {fileID: 308831217}
-  m_PrefabAsset: {fileID: 0}
---- !u!114 &308831219
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 308831218}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 725a60aa578c242459c1c3c0c54d2255, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1 &851362126
 GameObject:
   m_ObjectHideFlags: 0
