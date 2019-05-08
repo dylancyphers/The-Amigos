@@ -13,6 +13,7 @@ public class Fox_Move : MonoBehaviour {
 	private GameObject[] life;
 	private int qtdLife;
     private int jumpCount = 0;
+    private Vector2 l;
 
 
 	// Use this for initialization
@@ -28,6 +29,8 @@ public class Fox_Move : MonoBehaviour {
 		rateOfHit=Time.time;
 		life=GameObject.FindGameObjectsWithTag("Life");
 		qtdLife=life.Length;
+        l = new Vector2();
+        l = 5* Vector2.left;
 	}
 
     void Update()
@@ -71,9 +74,23 @@ public class Fox_Move : MonoBehaviour {
 	}
 
 	void Movement(){
+        
 		//Character Move
 		float move = Input.GetAxisRaw("Horizontal");
-		if(Input.GetKey(KeyCode.Z) && Powers.sprint == true){
+        if(Powers.dash == true && Input.GetKey(KeyCode.F))
+        {
+            Vector2 newloc = new Vector2();
+            if (rb.velocity.x < 0)
+            {
+                newloc.x = this.transform.position.x - 1;
+            } else if (rb.velocity.x>0)
+            {
+                newloc.x = this.transform.position.x + 1; 
+            }
+            newloc.y = this.transform.position.y;
+            this.transform.position = newloc;
+        }
+        if (Input.GetKey(KeyCode.Z) && Powers.sprint == true){
 			//Run
 			rb.velocity = new Vector2(move*speed*Time.deltaTime*3,rb.velocity.y);
 			running=true;
@@ -198,6 +215,11 @@ public class Fox_Move : MonoBehaviour {
         if (other.gameObject.name == "Crouch")
         {
             Powers.FoundCrouch();
+            Destroy(other.gameObject);
+        }
+        if (other.gameObject.name == "Dash")
+        {
+            Powers.FoundDash();
             Destroy(other.gameObject);
         }
         if (other.gameObject.name == "Sprint")

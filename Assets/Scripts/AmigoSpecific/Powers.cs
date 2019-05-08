@@ -8,6 +8,7 @@ public class Powers : MonoBehaviour {
     public static bool wallJump;
     public static bool sprint;
     public static bool crouch;
+    public static bool dash;
     // Use this for initialization
     void Start () {
 
@@ -15,6 +16,7 @@ public class Powers : MonoBehaviour {
         wallJump = false;
         sprint = false;
         crouch = false;
+        dash = true;
 	}
 	
 	// Update is called once per frame
@@ -36,6 +38,10 @@ public class Powers : MonoBehaviour {
     public static void FoundCrouch()
     {
         crouch = true;
+    }
+    public static void FoundDash()
+    {
+        dash = true;
     }
 
 
