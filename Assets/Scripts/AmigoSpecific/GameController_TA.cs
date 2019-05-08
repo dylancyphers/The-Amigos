@@ -37,6 +37,8 @@ public class GameController_TA : BaseGameController
 
     public float gameSpeed = 1;
 
+    GameManagerScript gm;
+
     //public RadarGUI theRadarControlScript;
 
     public GameController_TA()
@@ -48,6 +50,7 @@ public class GameController_TA : BaseGameController
     {
         Init();
         Time.timeScale = gameSpeed;
+        gm = GameObject.Find("GameManager").GetComponent<GameManagerScript>();
     }
 
     public void Init()
@@ -131,6 +134,25 @@ public class GameController_TA : BaseGameController
         // all ready to play, let's go!
         thePlayerScript.GameStart();
     }
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+        if(collision.tag == "doubleJump")
+        {
+            Powers.FoundDoubleJump();
+        }
+        else if (collision.tag == "wallJump")
+        {
+            Powers.FoundWallJump();
+        }
+        else if (collision.tag == "sprint")
+        {
+            Powers.FoundSprint();
+        }
+        else if (collision.tag == "crouch")
+        {
+            Powers.FoundCrouch();
+        }
+    }
 
     /*
     public override void EnemyDestroyed(Vector3 aPosition, int pointsValue, int hitByID)
@@ -152,7 +174,7 @@ public class GameController_TA : BaseGameController
     }
     */
 
-    
+
     public void PlayerHit(Transform whichPlayer)
     {
         // tell our sound controller to play an explosion sound
