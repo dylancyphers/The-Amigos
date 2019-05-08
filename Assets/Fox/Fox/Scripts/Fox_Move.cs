@@ -184,17 +184,21 @@ public class Fox_Move : MonoBehaviour {
             Destroy(other.gameObject);
         }
 
-        if (Powers.wallJump == true && Input.GetKeyDown(KeyCode.X))
-        {
-            rb.AddForce(new Vector2(0, jumpForce));
-        }
-            //walljump
-
-            if (other.gameObject.name == "WallJump")
+        if (other.gameObject.name == "WallJump")
         {
             Powers.FoundWallJump();
             Destroy(other.gameObject);
         }
+
+        //allows walljumping 
+        if (Powers.wallJump == true && other.gameObject.tag == "TileMap")
+        {
+
+            jumpCount = 0;
+        }
+            //walljump
+
+
     }
 
 	void Hurt(){
