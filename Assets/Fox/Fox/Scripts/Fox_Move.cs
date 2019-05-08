@@ -151,14 +151,22 @@ public class Fox_Move : MonoBehaviour {
 			anim.SetTrigger("Damage");
 			Hurt();
 		}
-	}								
+
+    }		
+
+    						
 
 	void OnCollisionEnter2D(Collision2D other) {						//Case of Touch
 		if(other.gameObject.tag=="Enemy"){
 			anim.SetTrigger("Damage");
 			Hurt();
 		}
-	}
+
+        if (other.gameObject.name == "Coin")
+        {
+            Destroy(other.gameObject);
+        }
+    }
 
 	void Hurt(){
 		if(rateOfHit<Time.time){
