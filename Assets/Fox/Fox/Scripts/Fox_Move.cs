@@ -31,7 +31,7 @@ public class Fox_Move : MonoBehaviour {
 
     void Update()
     {
-        if (Input.GetKeyDown(KeyCode.X) && jumpCount != 1)
+        if (Input.GetKeyDown(KeyCode.X) && jumpCount != 2)
         {
             jumpCount++;
             rb.AddForce(new Vector2(0, jumpForce));
